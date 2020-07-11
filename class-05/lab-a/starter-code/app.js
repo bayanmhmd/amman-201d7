@@ -16,7 +16,7 @@ function sum(a, b) { //eslint-disable-line
     
 
 // Here is the test for sum(); uncomment it to run it
- testSum(4, 7);
+ testSum(5, 9);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -37,24 +37,30 @@ function multiply(a, b) { //eslint-disable-line
     
 
 // Here is the test for multiply(); uncomment it to run it
- testMultiply(5,9);
+ testMultiply(4,7);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
 /////////////////////////////////////
 /* Problem 3
-Write a function called sumAndMultiply() that takes in three numbers as separate arguments and returns an array where the first element is the sum of those three numbers, the second element is the product of those three numbers,  and the third and fourth elements are strings that EXACTLY follow this example and use the values that were input into the function:
+Write a function called sumAndMultiply() that takes in three numbers as separate arguments and returns an array where the first element is 
+the sum of those three numbers, the second element is the product of those three numbers,  and the third and fourth elements are strings 
+that EXACTLY follow this example and use the values that were input into the function:
 Third element: "4 and 7 and 5 sum to 16."
 Fourth element: "The product of 4 and 7 and 5 is 140."
-IMPORTANT DETAIL: You may not use the arithmetic operators + and * in this function. To do addition, use your sum() function, and to do multiplication, use your multiply() function that you've already created. You're going to have to be resourceful to figure out how to do this. However, you may continue to use the + operator for string concatenation.
+IMPORTANT DETAIL: You may not use the arithmetic operators + and * in this function. To do addition, use your sum() function, and to do
+ multiplication, use your multiply() function that you've already created. You're going to have to be resourceful to figure out how to do this.
+  However, you may continue to use the + operator for string concatenation.
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumAndMultiply() function and see if the test passes.*/
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-var suma=sum(sum(a,b)[0],c)[0];
-var multia=multiply(multiply(a,b)[0],c)[0];
-var array3=[suma,multia,'4 and 7 and 5 sum to 16.','The product of 4 and 7 and 5 is 140.']
-return array3;
+    var s1=sum(a,b)[0]
+var s2=sum(s1,c)[0]
+var multi=multiply(a,b)[0]
+var multi2=multiply(multi,c)[0]
+var arrayA=[s2,multi2,'4 and 7 and 5 sum to 16.','The product of 4 and 7 and 5 is 140.']
+return arrayA;
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
@@ -81,7 +87,7 @@ function sumArray(sumArr) { //eslint-disable-line
         s = sum(s, sumArr[i])[0];
     }
 
-    return [ s ,sumArr[0] + "," +sumArr[1] + "," + sumArr[2] + " was passed in as an array of numbers, and " + s + " is their sum." ]
+    return [ s , sumArr[0] + "," +sumArr[1] + "," + sumArr[2] + " was passed in as an array of numbers, and " + s + " is their sum." ]
 
 }
 
@@ -104,18 +110,21 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
+
+
 var m=1;
 for (var i=0;i<testArray.length;i++){
     m=multiply(m,multArr[i])[0];
 }
 return [m,'The numbers '+multArr[0]+','+multArr[1]+','+multArr[2]+' have a product of 24.']
+
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
 
  //testMultiplyArray(testArray);
-=======
- testMultiplyArray(testArray);
+
+ //testMultiplyArray(testArray);
 
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
@@ -140,10 +149,16 @@ Test this function by hand in the console to get it working, and when you think 
 var testDynamicArray = [1,2,3,4,5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) { //eslint-disable-line
-
+    var m=1;
+    for (var i=0;i<dynamicArray.length;i++){
+         m=multiply(m,dynamicArray[i])[0];
+              
+    }
+    var array5=[m,'The numbers 1,2,3,4,5 have a product of 120.'];
+    return array5;
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyAnyArray(testDynamicArray);
+testMultiplyAnyArray(testDynamicArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
